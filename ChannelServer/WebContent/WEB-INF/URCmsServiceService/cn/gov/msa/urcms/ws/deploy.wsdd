@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from URCmsServiceService WSDL service -->
+
+  <service name="URCmsService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.urcms.msa.gov.cn"/>
+      <parameter name="wsdlServiceElement" value="URCmsServiceService"/>
+      <parameter name="schemaQualified" value="http://ws.urcms.msa.gov.cn"/>
+      <parameter name="wsdlServicePort" value="URCmsService"/>
+      <parameter name="className" value="cn.gov.msa.urcms.ws.URCmsService"/>
+      <parameter name="wsdlPortType" value="URCmsService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryColumnNames" qname="operNS:queryColumnNames" returnQName="retNS:queryColumnNamesReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryArticleList" qname="operNS:queryArticleList" returnQName="retNS:queryArticleListReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:columnId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pageSize" type="tns:int"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Pages" type="tns:int"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:publish" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteArticleById" qname="operNS:deleteArticleById" returnQName="retNS:deleteArticleByIdReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:contentId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:appId" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryAssortments" qname="operNS:queryAssortments" returnQName="retNS:queryAssortmentsReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryArticleListByAppid" qname="operNS:queryArticleListByAppid" returnQName="retNS:queryArticleListByAppidReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:appId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pageSize" type="tns:int"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Pages" type="tns:int"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:publish" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryArticleListByTypeIdAndChannelId" qname="operNS:queryArticleListByTypeIdAndChannelId" returnQName="retNS:queryArticleListByTypeIdAndChannelIdReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:typeId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:channelId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:pageSize" type="tns:int"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Pages" type="tns:int"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:publish" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addArticle" qname="operNS:addArticle" returnQName="retNS:addArticleReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Title" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:shortName" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:author" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:target" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ContentDetail" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:alter" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:createTime" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:updateTime" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:reorderTime" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:text" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:files" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:filename" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Appid" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Appname" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:source" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:assortment" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:columnId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:publish" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="queryArticle" qname="operNS:queryArticle" returnQName="retNS:queryArticleReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:contentId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:siteName" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.urcms.msa.gov.cn" xmlns:retNS="http://ws.urcms.msa.gov.cn" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateArticle" qname="operNS:updateArticle" returnQName="retNS:updateArticleReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:contentId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Title" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:shortName" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:author" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:target" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ContentDetail" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:alter" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:createTime" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:updateTime" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:reorderTime" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:text" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:files" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:filename" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Appid" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Appname" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:source" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:assortment" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:columnId" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.urcms.msa.gov.cn" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:publish" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="queryArticleListByAppid queryArticleList updateArticle addArticle queryArticle queryAssortments queryColumnNames deleteArticleById queryArticleListByTypeIdAndChannelId"/>
+
+  </service>
+</deployment>

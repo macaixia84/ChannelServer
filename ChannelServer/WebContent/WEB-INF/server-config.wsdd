@@ -1,0 +1,135 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="D:\tools\Tomcat 6.0\webapps\ChannelServer\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="URCmsService" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="queryColumnNames" qname="ns1:queryColumnNames" returnQName="ns1:queryColumnNamesReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:operation name="queryArticleList" qname="ns2:queryArticleList" returnQName="ns2:queryArticleListReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:columnId" type="xsd:string"/>
+   <ns1:parameter qname="ns2:userId" type="xsd:string"/>
+   <ns1:parameter qname="ns2:pageSize" type="xsd:int"/>
+   <ns1:parameter qname="ns2:Pages" type="xsd:int"/>
+   <ns1:parameter qname="ns2:publish" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="deleteArticleById" qname="ns3:deleteArticleById" returnQName="ns3:deleteArticleByIdReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:contentId" type="xsd:string"/>
+   <ns1:parameter qname="ns3:userId" type="xsd:string"/>
+   <ns1:parameter qname="ns3:appId" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="queryAssortments" qname="ns4:queryAssortments" returnQName="ns4:queryAssortmentsReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="queryArticleListByAppid" qname="ns5:queryArticleListByAppid" returnQName="ns5:queryArticleListByAppidReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:appId" type="xsd:string"/>
+   <ns1:parameter qname="ns5:userId" type="xsd:string"/>
+   <ns1:parameter qname="ns5:pageSize" type="xsd:int"/>
+   <ns1:parameter qname="ns5:Pages" type="xsd:int"/>
+   <ns1:parameter qname="ns5:publish" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="queryArticleListByTypeIdAndChannelId" qname="ns6:queryArticleListByTypeIdAndChannelId" returnQName="ns6:queryArticleListByTypeIdAndChannelIdReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:typeId" type="xsd:string"/>
+   <ns1:parameter qname="ns6:channelId" type="xsd:string"/>
+   <ns1:parameter qname="ns6:pageSize" type="xsd:int"/>
+   <ns1:parameter qname="ns6:Pages" type="xsd:int"/>
+   <ns1:parameter qname="ns6:publish" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="addArticle" qname="ns7:addArticle" returnQName="ns7:addArticleReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:Title" type="xsd:string"/>
+   <ns1:parameter qname="ns7:shortName" type="xsd:string"/>
+   <ns1:parameter qname="ns7:author" type="xsd:string"/>
+   <ns1:parameter qname="ns7:target" type="xsd:string"/>
+   <ns1:parameter qname="ns7:ContentDetail" type="xsd:string"/>
+   <ns1:parameter qname="ns7:alter" type="xsd:string"/>
+   <ns1:parameter qname="ns7:createTime" type="xsd:string"/>
+   <ns1:parameter qname="ns7:updateTime" type="xsd:string"/>
+   <ns1:parameter qname="ns7:reorderTime" type="xsd:string"/>
+   <ns1:parameter qname="ns7:text" type="xsd:string"/>
+   <ns1:parameter qname="ns7:files" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns7:filename" type="xsd:string"/>
+   <ns1:parameter qname="ns7:Appid" type="xsd:string"/>
+   <ns1:parameter qname="ns7:Appname" type="xsd:string"/>
+   <ns1:parameter qname="ns7:source" type="xsd:string"/>
+   <ns1:parameter qname="ns7:assortment" type="xsd:string"/>
+   <ns1:parameter qname="ns7:columnId" type="xsd:string"/>
+   <ns1:parameter qname="ns7:publish" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="queryArticle" qname="ns8:queryArticle" returnQName="ns8:queryArticleReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:contentId" type="xsd:string"/>
+   <ns1:parameter qname="ns8:siteName" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateArticle" qname="ns9:updateArticle" returnQName="ns9:updateArticleReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://ws.urcms.msa.gov.cn" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:contentId" type="xsd:string"/>
+   <ns1:parameter qname="ns9:Title" type="xsd:string"/>
+   <ns1:parameter qname="ns9:shortName" type="xsd:string"/>
+   <ns1:parameter qname="ns9:author" type="xsd:string"/>
+   <ns1:parameter qname="ns9:target" type="xsd:string"/>
+   <ns1:parameter qname="ns9:ContentDetail" type="xsd:string"/>
+   <ns1:parameter qname="ns9:alter" type="xsd:string"/>
+   <ns1:parameter qname="ns9:createTime" type="xsd:string"/>
+   <ns1:parameter qname="ns9:updateTime" type="xsd:string"/>
+   <ns1:parameter qname="ns9:reorderTime" type="xsd:string"/>
+   <ns1:parameter qname="ns9:text" type="xsd:string"/>
+   <ns1:parameter qname="ns9:files" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns9:filename" type="xsd:string"/>
+   <ns1:parameter qname="ns9:Appid" type="xsd:string"/>
+   <ns1:parameter qname="ns9:Appname" type="xsd:string"/>
+   <ns1:parameter qname="ns9:source" type="xsd:string"/>
+   <ns1:parameter qname="ns9:assortment" type="xsd:string"/>
+   <ns1:parameter qname="ns9:columnId" type="xsd:string"/>
+   <ns1:parameter qname="ns9:publish" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="queryArticleListByAppid queryArticleList updateArticle addArticle queryArticle queryAssortments queryColumnNames deleteArticleById queryArticleListByTypeIdAndChannelId"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="URCmsService"/>
+  <ns1:parameter name="className" value="cn.gov.msa.urcms.ws.URCmsService"/>
+  <ns1:parameter name="wsdlServicePort" value="URCmsService"/>
+  <ns1:parameter name="schemaQualified" value="http://ws.urcms.msa.gov.cn"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ws.urcms.msa.gov.cn"/>
+  <ns1:parameter name="wsdlServiceElement" value="URCmsServiceService"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.urcms.msa.gov.cn" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.urcms.msa.gov.cn" xmlns:intf="http://ws.urcms.msa.gov.cn" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.urcms.msa.gov.cn" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="queryColumnNames">
+    <complexType/>
+   </element>
+   <element name="queryColumnNamesResponse">
+    <complexType>
+     <sequence>
+      <element name="queryColumnNamesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticleList">
+    <complexType>
+     <sequence>
+      <element name="columnId" type="xsd:string"/>
+      <element name="userId" type="xsd:string"/>
+      <element name="pageSize" type="xsd:int"/>
+      <element name="Pages" type="xsd:int"/>
+      <element name="publish" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticleListResponse">
+    <complexType>
+     <sequence>
+      <element name="queryArticleListReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteArticleById">
+    <complexType>
+     <sequence>
+      <element name="contentId" type="xsd:string"/>
+      <element name="userId" type="xsd:string"/>
+      <element name="appId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteArticleByIdResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteArticleByIdReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryAssortments">
+    <complexType/>
+   </element>
+   <element name="queryAssortmentsResponse">
+    <complexType>
+     <sequence>
+      <element name="queryAssortmentsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticleListByAppid">
+    <complexType>
+     <sequence>
+      <element name="appId" type="xsd:string"/>
+      <element name="userId" type="xsd:string"/>
+      <element name="pageSize" type="xsd:int"/>
+      <element name="Pages" type="xsd:int"/>
+      <element name="publish" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticleListByAppidResponse">
+    <complexType>
+     <sequence>
+      <element name="queryArticleListByAppidReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticleListByTypeIdAndChannelId">
+    <complexType>
+     <sequence>
+      <element name="typeId" type="xsd:string"/>
+      <element name="channelId" type="xsd:string"/>
+      <element name="pageSize" type="xsd:int"/>
+      <element name="Pages" type="xsd:int"/>
+      <element name="publish" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticleListByTypeIdAndChannelIdResponse">
+    <complexType>
+     <sequence>
+      <element name="queryArticleListByTypeIdAndChannelIdReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addArticle">
+    <complexType>
+     <sequence>
+      <element name="Title" type="xsd:string"/>
+      <element name="shortName" type="xsd:string"/>
+      <element name="author" type="xsd:string"/>
+      <element name="target" type="xsd:string"/>
+      <element name="ContentDetail" type="xsd:string"/>
+      <element name="alter" type="xsd:string"/>
+      <element name="createTime" type="xsd:string"/>
+      <element name="updateTime" type="xsd:string"/>
+      <element name="reorderTime" type="xsd:string"/>
+      <element name="text" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="files" type="xsd:base64Binary"/>
+      <element maxOccurs="unbounded" name="filename" type="xsd:string"/>
+      <element name="Appid" type="xsd:string"/>
+      <element name="Appname" type="xsd:string"/>
+      <element name="source" type="xsd:string"/>
+      <element name="assortment" type="xsd:string"/>
+      <element name="columnId" type="xsd:string"/>
+      <element name="publish" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addArticleResponse">
+    <complexType>
+     <sequence>
+      <element name="addArticleReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticle">
+    <complexType>
+     <sequence>
+      <element name="contentId" type="xsd:string"/>
+      <element name="siteName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="queryArticleResponse">
+    <complexType>
+     <sequence>
+      <element name="queryArticleReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateArticle">
+    <complexType>
+     <sequence>
+      <element name="contentId" type="xsd:string"/>
+      <element name="Title" type="xsd:string"/>
+      <element name="shortName" type="xsd:string"/>
+      <element name="author" type="xsd:string"/>
+      <element name="target" type="xsd:string"/>
+      <element name="ContentDetail" type="xsd:string"/>
+      <element name="alter" type="xsd:string"/>
+      <element name="createTime" type="xsd:string"/>
+      <element name="updateTime" type="xsd:string"/>
+      <element name="reorderTime" type="xsd:string"/>
+      <element name="text" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="files" type="xsd:base64Binary"/>
+      <element maxOccurs="unbounded" name="filename" type="xsd:string"/>
+      <element name="Appid" type="xsd:string"/>
+      <element name="Appname" type="xsd:string"/>
+      <element name="source" type="xsd:string"/>
+      <element name="assortment" type="xsd:string"/>
+      <element name="columnId" type="xsd:string"/>
+      <element name="publish" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateArticleResponse">
+    <complexType>
+     <sequence>
+      <element name="updateArticleReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="updateArticleResponse">
+
+      <wsdl:part element="impl:updateArticleResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addArticleResponse">
+
+      <wsdl:part element="impl:addArticleResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryColumnNamesResponse">
+
+      <wsdl:part element="impl:queryColumnNamesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleListResponse">
+
+      <wsdl:part element="impl:queryArticleListResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleListByTypeIdAndChannelIdResponse">
+
+      <wsdl:part element="impl:queryArticleListByTypeIdAndChannelIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteArticleByIdResponse">
+
+      <wsdl:part element="impl:deleteArticleByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryAssortmentsRequest">
+
+      <wsdl:part element="impl:queryAssortments" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleRequest">
+
+      <wsdl:part element="impl:queryArticle" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleListByTypeIdAndChannelIdRequest">
+
+      <wsdl:part element="impl:queryArticleListByTypeIdAndChannelId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteArticleByIdRequest">
+
+      <wsdl:part element="impl:deleteArticleById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleListByAppidRequest">
+
+      <wsdl:part element="impl:queryArticleListByAppid" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleListByAppidResponse">
+
+      <wsdl:part element="impl:queryArticleListByAppidResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleResponse">
+
+      <wsdl:part element="impl:queryArticleResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateArticleRequest">
+
+      <wsdl:part element="impl:updateArticle" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryArticleListRequest">
+
+      <wsdl:part element="impl:queryArticleList" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryAssortmentsResponse">
+
+      <wsdl:part element="impl:queryAssortmentsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addArticleRequest">
+
+      <wsdl:part element="impl:addArticle" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="queryColumnNamesRequest">
+
+      <wsdl:part element="impl:queryColumnNames" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="URCmsService">
+
+      <wsdl:operation name="queryColumnNames">
+
+         <wsdl:input message="impl:queryColumnNamesRequest" name="queryColumnNamesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryColumnNamesResponse" name="queryColumnNamesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticleList">
+
+         <wsdl:input message="impl:queryArticleListRequest" name="queryArticleListRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryArticleListResponse" name="queryArticleListResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteArticleById">
+
+         <wsdl:input message="impl:deleteArticleByIdRequest" name="deleteArticleByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteArticleByIdResponse" name="deleteArticleByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryAssortments">
+
+         <wsdl:input message="impl:queryAssortmentsRequest" name="queryAssortmentsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryAssortmentsResponse" name="queryAssortmentsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticleListByAppid">
+
+         <wsdl:input message="impl:queryArticleListByAppidRequest" name="queryArticleListByAppidRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryArticleListByAppidResponse" name="queryArticleListByAppidResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticleListByTypeIdAndChannelId">
+
+         <wsdl:input message="impl:queryArticleListByTypeIdAndChannelIdRequest" name="queryArticleListByTypeIdAndChannelIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryArticleListByTypeIdAndChannelIdResponse" name="queryArticleListByTypeIdAndChannelIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addArticle">
+
+         <wsdl:input message="impl:addArticleRequest" name="addArticleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addArticleResponse" name="addArticleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticle">
+
+         <wsdl:input message="impl:queryArticleRequest" name="queryArticleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:queryArticleResponse" name="queryArticleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateArticle">
+
+         <wsdl:input message="impl:updateArticleRequest" name="updateArticleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateArticleResponse" name="updateArticleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="URCmsServiceSoapBinding" type="impl:URCmsService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="queryColumnNames">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryColumnNamesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryColumnNamesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticleList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryArticleListRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryArticleListResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteArticleById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteArticleByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteArticleByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryAssortments">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryAssortmentsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryAssortmentsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticleListByAppid">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryArticleListByAppidRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryArticleListByAppidResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticleListByTypeIdAndChannelId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryArticleListByTypeIdAndChannelIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryArticleListByTypeIdAndChannelIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addArticle">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addArticleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addArticleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="queryArticle">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="queryArticleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="queryArticleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateArticle">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateArticleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateArticleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="URCmsServiceService">
+
+      <wsdl:port binding="impl:URCmsServiceSoapBinding" name="URCmsService">
+
+         <wsdlsoap:address location="http://localhost:8080/ChannelServer/services/URCmsService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
